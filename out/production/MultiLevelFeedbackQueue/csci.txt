@@ -1,0 +1,11 @@
+Event   Clock  PID Size Elapsed End Queue
+Arrival     0  101  100
+Departure 100  101          100         4
+
+Jobs Completed: : 1
+Sum Process Time: : 100
+Total CPU Idle Time: : 0
+Average Response Time: : 0.00
+Average Turnarround: : 100.00
+Average Wait Time: : 0.00
+Average Throughput: : 0.01
