@@ -3,10 +3,12 @@
  * Modified by: Nirmal Karthikeyan
  * Github: github.com/cyberwizard1001/spamcode
  */
+
     class CentralProcessingUnit{
     Job j;
     int quanta,quantum;
     boolean occupied;
+
 
     //Constructor
     public CentralProcessingUnit(){

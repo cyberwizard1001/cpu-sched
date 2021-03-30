@@ -6,8 +6,7 @@ import java.io.*;
  */
 public class Driver{
 
-    //Main method for multi level feedback queue
-
+    //Main function for multi level feedback queue
     public static void main(String[] args){
         MultiLevelFeedbackQueue mfq=new MultiLevelFeedbackQueue();
         mfq.retrieveProcess();

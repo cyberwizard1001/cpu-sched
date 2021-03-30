@@ -15,7 +15,6 @@ public class MultiLevelFeedbackQueue {
 
 
     //Constructor for multi level feedback queue
-
     public MultiLevelFeedbackQueue() {
         clock = 0;
         numberOfProcess = 0;
@@ -34,7 +33,6 @@ public class MultiLevelFeedbackQueue {
         q6 = new ObjectQueue();
         q7 = new ObjectQueue();
         q8 = new ObjectQueue();
-
     }
 
 
