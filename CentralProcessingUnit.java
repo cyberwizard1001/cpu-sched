@@ -28,7 +28,7 @@
      * Processes the current job in central processing unit
      */
     public void process(){
-        j.decrementTime();
+        j.decrementTime();   //--timeremaining
         --quanta;
     }
     /**

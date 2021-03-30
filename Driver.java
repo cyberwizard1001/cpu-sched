@@ -12,8 +12,8 @@ public class Driver{
         //Andrews Samuel
         //008559913
         PrintWriter pw=new PrintWriter(new FileWriter("csci.txt"));
-        MultiLevelFeedbackQueue mfq=new MultiLevelFeedbackQueue(pw);
-        mfq.retrieveJobs();
+        MultiLevelFeedbackQueue mfq=new MultiLevelFeedbackQueue();
+        mfq.retrieveProcess();
         mfq.outputHeader();
         mfq.simulate();
         mfq.outputStats();
