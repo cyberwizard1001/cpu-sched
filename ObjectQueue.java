@@ -1,59 +1,50 @@
 /**
- * Class interface for object queue data structure
- * @author Andrews Samuel
- * @version 24/3/17
+* Class implementation for the queue data structure
+ * Modified by Nirmal Karthikeyan
+ * Github: github.com/cybwerwizard1001/spamcode
  */
+
 public class ObjectQueue implements ObjectQueueInterface{
     private Object[] item;
     private int front,rear,count;
-    /**
-     * Constructor for object queue
-     */
+
+    //Constructor
     public ObjectQueue() {
         item=new Object[1];
         front=0;
         rear=-1;
         count=0;
     }
-    /**
-     * Determines whether or not queue is empty
-     * @return true if empty, false if it contains object(s)
-     */
+
+    //Returns true if queue is empty
     public boolean isEmpty() {
         return count==0;
     }
-    /**
-     * Determines whether or not queue is full
-     * @return true if full, false if it still has room for more objects
-     */
+
+    //Returns true if queue is full
     public boolean isFull() {
         return count==item.length;
     }
-    /**
-     * Clears queue by creating a new location in memory for a new one
-     */
+
+    //Clears queue
     public void clear() {
         item=new Object[1];
         front=0;
         rear=-1;
         count=0;
     }
-    /**
-     * Places an object into rear of queue
-     * @param object o to be inserted into queue
-     */
-    public void insert(Object owie) {
+
+
+    public void insert(Object obj) {
         if (isFull())
             resize(2*item.length);
         rear=(rear+1)%item.length;
-        item[rear]=owie;
+        item[rear]=obj;
         ++count;
-        //System.out.print(((Job)owie).getPid()+"\n");
+        //System.out.print(((Job)obj).getPid()+"\n");
     }
-    /**
-     * Removes an object from the front of queue
-     * @return the object removed from front of queue
-     */
+
+    //REMOVE and return element
     public Object extract() {
         if (isEmpty()) {
             System.out.print("Queue Underflow\n");
@@ -68,10 +59,8 @@ public class ObjectQueue implements ObjectQueueInterface{
             resize(item.length/2);
         return temp;
     }
-    /**
-     * Returns the object in front of queue without removing it
-     * @return object in front of queue
-     */
+
+    //RETURN element
     public Object query() {
         if (isEmpty()) {
             System.out.print("Queue Underflow\n");
@@ -80,10 +69,9 @@ public class ObjectQueue implements ObjectQueueInterface{
         }
         return item[front];
     }
-    /**
-     * Resizes the array in which queue is represented by creating an entirely new storage array and copying objects
-     * @param size of new queue
-     */
+
+
+     //Resizes the array in which queue is represented. Used for insertion and removal
     private void resize(int size) {
         Object[] temp=new Object[size];
         for (int i=0;i<count;++i) {

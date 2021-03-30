@@ -1,79 +1,65 @@
 /**
  * Class representing the central processing unit to process jobs in turn
- * @author Andrews Samuel
- * @version 24/3/17
+ * Modified by: Nirmal Karthikeyan
+ * Github: github.com/cyberwizard1001/spamcode
  */
     class CentralProcessingUnit{
     Job j;
     int quanta,quantum;
     boolean occupied;
-    /**
-     * Constructor for central processing unit
-     */
+
+    //Constructor
     public CentralProcessingUnit(){
         j=null;
-        quanta=0;//represents remaining quanta for job
-        quantum=quanta;//represents starting quantum 2, 4, 8, or 16 in this case
-        occupied=false;
+        quanta=0; //represents remaining quanta for job
+        quantum=quanta; //represents starting quantum
+        occupied=false;  //used to identify if CPU is free or occupied
     }
-    /**
-     * Central processing unit accepts a job for processing
-     * @param job to be processed
-     */
-    public void takeJob(Job jobbie){
-        j=jobbie;
+
+    //Accept process for processing
+    public void takeJob(Job proc){
+        j=proc;
+        //CPU busy state is set to true
         occupied=true;
     }
-    /**
-     * Processes the current job in central processing unit
-     */
+
+    //Actual CPU functioning (processing)
     public void process(){
-        j.decrementTime();   //--timeremaining
+        j.decrementTime();   // does --timeremaining for job 'process'
         --quanta;
     }
-    /**
-     * Initializes quanta and quantum for the incoming job
-     * @param time to the current quanta/quantum is to be set 2, 4, 8, or 16 in this case
-     */
+
+    //Givr value for quanta and quantum
     public void setQuanta(int time){
         quanta=time;
         quantum=quanta;
     }
-    /**
-     * Determines whether or not the job still has time for processing in CPU
-     * @return true if time is up, false otherwise
-     */
+
+    //If the particular quantum has been completed returns zero
     public boolean outOfTime(){
         return quanta==0;
     }
-    /**
-     * Returns quantum in which job was initialy set to
-     * @return quantum number 2, 4, 8, or 16 in this case
-     */
+
+    //Returns quantum of current process
     public int getQuantum(){
+        //2,4,8,16,32,64,128,256
         return quantum;
     }
-    /**
-     * Returns the current job in CPU
-     * @return current job in CPU
-     */
-    public Job currentJob(){
+
+//Returns the executing process
+   public Job currentJob(){
         return j;
     }
-    /**
-     * Releases and returns job after CPU is done processing, and resets CPU stats
-     * @return processed job
-     */
+
+    //Return completed job, reset CPU state
     public Job releaseJob(){
         occupied=false;
         Job temp=j;
         j=null;
         return temp;
     }
-    /**
-     * Determines whether or not CPU is occupied and is available to take another job
-     * @return true if CPU has a job in proccess, false if vacant
-     */
+
+    //Return true if CPU is occupied, else false
     public boolean isOccupied(){
         return occupied;
     }

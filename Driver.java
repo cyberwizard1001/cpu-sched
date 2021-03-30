@@ -1,22 +1,18 @@
 import java.io.*;
 /**
- * Driver for multi level feedback queue simulation
- * @author Andrews Samuel
- * @version 24/3/17
+ * Driver
+ * Modified: Nirmal Karthikeyan
+ * Github: github.com/cyberwizard1001/spamcode
  */
 public class Driver{
-    /**
-     * Main method for multi level feedback queue
-     */
-    public static void main(String[] args)throws IOException{
-        //Andrews Samuel
-        //008559913
-        PrintWriter pw=new PrintWriter(new FileWriter("csci.txt"));
+
+    //Main method for multi level feedback queue
+
+    public static void main(String[] args){
         MultiLevelFeedbackQueue mfq=new MultiLevelFeedbackQueue();
         mfq.retrieveProcess();
         mfq.outputHeader();
         mfq.simulate();
         mfq.outputStats();
-        pw.close();
     }
 }
